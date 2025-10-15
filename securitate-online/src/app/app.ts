@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 
 // Componente standalone
 import { HeaderComponent } from './components/header/header'; // ⬅️ Now resolves HeaderComponent
-import { HomeComponent } from './components/home/home';
+import { HomeComponent } from './components/home/home'; // ⬅️ Should not be here if routed
 import { FooterComponent } from './components/footer/footer';
 
 @Component({
@@ -12,7 +12,7 @@ import { FooterComponent } from './components/footer/footer';
   imports: [
     RouterOutlet,
     HeaderComponent,
-    HomeComponent,
+    HomeComponent, // ⬅️ Should be removed
     FooterComponent
   ],
   templateUrl: './app.html',
