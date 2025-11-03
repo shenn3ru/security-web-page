@@ -1,0 +1,32 @@
+body {
+      background-color: #f8fafc;
+      color: #0f172a;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px 0;
+    }
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .price {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #2563eb;
+    }
+    .btn-primary {
+      background-color: #2563eb;
+      border: none;
+      border-radius: 8px;
+    }
+    .btn-primary:hover {
+      background-color: #1e40af;
+    }

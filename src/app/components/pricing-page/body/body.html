@@ -1,0 +1,28 @@
+<body>
+  @if (plans) {
+  <div class="container text-center ">
+    <h1 class="mb-4">Cybersecurity Solutions</h1>
+    <p class="text-muted mb-5">Choose the plan that fits your business needs</p>
+    <div class="row">
+      @for (plan of plans; track $index) {
+          
+          <div class="col-md-4">
+            <a [routerLink]="['/plan', plan?.id]" class="text-decoration-none text-dark">
+            <div class="card p-4 border border-primary">
+              <h3 class="mb-3">{{plan?.name}}</h3>
+              <p class="price">${{plan?.price}}/mo</p>
+              <ul class="features text-start">
+              @for (feature of plan.features; track $index) {
+              <li>{{feature}}</li>
+              }
+              </ul>
+                <button class="btn btn-primary w-100 mt-auto">Choose Plan</button>
+              
+            </div>
+            </a>
+        </div>
+        
+    }
+    </div>
+  </div>
+}

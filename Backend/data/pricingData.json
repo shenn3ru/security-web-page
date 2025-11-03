@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Basic Protection",
+    "description": "Ideal for individuals and small teams. Provides real-time threat monitoring, basic firewall protection, weekly security reports, and email support. Get notified about malware, phishing, and unauthorized access attempts quickly.",
+    "price": 29.99,
+    "imageUrl": "https://example.com/images/basic-protection.png",
+    "features": [
+      "Real-time threat monitoring",
+      "Basic firewall protection",
+      "Weekly security reports",
+      "Email support",
+      "Malware & phishing alerts"
+    ],
+    "recommended": false
+  },
+  {
+    "id": 2,
+    "name": "Advanced Security",
+    "description": "Perfect for growing businesses. Includes everything in Basic Protection plus advanced firewall, intrusion detection system, daily security reports, VPN access, and priority email support. Stay ahead of cyber threats with automated threat intelligence.",
+    "price": 59.99,
+    "imageUrl": "https://example.com/images/advanced-security.png",
+    "features": [
+      "Advanced firewall & intrusion detection",
+      "Daily security reports",
+      "VPN access for secure connections",
+      "Priority email support",
+      "Automated threat intelligence"
+    ],
+    "recommended": true
+  },
+  {
+    "id": 3,
+    "name": "Enterprise Guard",
+    "description": "Designed for large organizations. Includes everything in Advanced Security, plus 24/7 dedicated support, endpoint protection for all devices, custom threat intelligence, compliance reporting, and monthly security audits. Ensure full enterprise-level security and regulatory compliance.",
+    "price": 129.99,
+    "imageUrl": "https://example.com/images/enterprise-guard.png",
+    "features": [
+      "24/7 dedicated support",
+      "Endpoint protection for all devices",
+      "Custom threat intelligence",
+      "Compliance and audit reports",
+      "Monthly security audits"
+    ],
+    "recommended": false
+  }
+]

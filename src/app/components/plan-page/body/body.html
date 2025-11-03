@@ -1,0 +1,22 @@
+
+<body>
+  @if (plans) {
+  <div class="container">
+    <div class="plan-header">
+      <h1>{{plans.name}}</h1>
+      <p>{{plans.description}}</p>
+    </div>
+
+    <div class="card text-center">
+      <p class="price">${{plans.price}}/mo</p>
+      <ul class="features text-start">
+        @for (feature of plans.features; track $index) {
+        <li>{{feature}}</li>
+        }
+      </ul>
+      <button class="btn btn-primary w-100" (click)="goBack()">Go Back</button>
+    </div>
+  </div>
+}
+</body>
+
