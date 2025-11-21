@@ -1,0 +1,64 @@
+<div class="container my-5">
+  
+  <div class="d-flex justify-content-between align-items-center mb-5">
+    <a routerLink="/" class="btn btn-outline-secondary rounded-pill px-4">
+      ← Înapoi Acasă
+    </a>
+    <h2 class="text-center flex-grow-1 m-0">Contactează-ne</h2>
+    <div style="width: 140px;"></div> </div>
+
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="card shadow-lg p-4 border-0">
+        <p class="text-center text-muted mb-4">Ai întrebări despre securitatea ta? Scrie-ne!</p>
+
+        @if (sentSuccess) {
+          <div class="alert alert-success text-center fade-in">
+            ✅ Mesajul tău a fost trimis cu succes! Te vom contacta curând.
+          </div>
+        }
+
+
+        <form (ngSubmit)="sendMessage()">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="nameInput" placeholder="Nume" [(ngModel)]="formData.name" name="name" required>
+            <label for="nameInput">Numele tău</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" [(ngModel)]="formData.email" name="email" required>
+            <label for="emailInput">Adresa de Email</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <textarea class="form-control" placeholder="Mesaj" id="messageInput" style="height: 150px" [(ngModel)]="formData.message" name="message" required></textarea>
+            <label for="messageInput">Mesajul tău</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100 py-2" [disabled]="isSubmitting">
+            @if (isSubmitting) {
+              <span class="spinner-border spinner-border-sm me-2" role="status"></span> Se trimite...
+            } @else {
+              <span>Trimite Mesajul 🚀</span>
+            }
+          </button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 mt-5 mt-lg-0 d-flex flex-column justify-content-center ps-lg-5">
+        <div class="mb-4">
+            <h5>📍 Adresa Noastră</h5>
+            <p class="text-muted">Strada Studenților 9/7, Chișinău, Moldova</p>
+        </div>
+        <div class="mb-4">
+            <h5>📧 Email</h5>
+            <p class="text-muted">support&#64;techspec.md</p>
+        </div>
+        <div>
+            <h5>📞 Telefon</h5>
+            <p class="text-muted">+373 60 123 456</p>
+        </div>
+    </div>
+  </div>
+</div>
