@@ -5,5 +5,5 @@ export interface PlanModel {
   price: number;
   imageUrl: string;
   features: string[];
-  recommendation: boolean;
+  recommended: boolean; // Changed from 'recommendation' to match DB and Code
 }

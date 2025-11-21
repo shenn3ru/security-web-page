@@ -1,1 +1,2 @@
-/* You can add global styles to this file, and also import other style files */
+/* Add custom loader style if not using bootstrap spinner */
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }

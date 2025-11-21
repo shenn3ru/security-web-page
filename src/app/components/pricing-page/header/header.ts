@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink],
+  standalone: true,
+  imports: [RouterLink, RouterLinkActive, CommonModule],
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
 export class Header {
-
+  auth = inject(AuthService);
 }

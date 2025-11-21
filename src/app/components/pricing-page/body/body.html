@@ -1,28 +1,77 @@
-<body>
-  @if (plans) {
-  <div class="container text-center ">
-    <h1 class="mb-4">Cybersecurity Solutions</h1>
-    <p class="text-muted mb-5">Choose the plan that fits your business needs</p>
-    <div class="row">
-      @for (plan of plans; track $index) {
-          
-          <div class="col-md-4">
-            <a [routerLink]="['/plan', plan?.id]" class="text-decoration-none text-dark">
-            <div class="card p-4 border border-primary">
-              <h3 class="mb-3">{{plan?.name}}</h3>
-              <p class="price">${{plan?.price}}/mo</p>
-              <ul class="features text-start">
-              @for (feature of plan.features; track $index) {
-              <li>{{feature}}</li>
-              }
-              </ul>
-                <button class="btn btn-primary w-100 mt-auto">Choose Plan</button>
-              
-            </div>
-            </a>
-        </div>
-        
-    }
+<div class="container my-5 position-relative">
+  
+  <div class="text-center mb-5">
+    <h1 class="display-5 fw-bold text-primary">Security Solutions</h1>
+    <p class="text-muted">Discover community and enterprise solutions</p>
+  </div>
+
+  <div class="row g-3 mb-4 align-items-center">
+    <div class="col-md-6">
+      <div class="input-group">
+        <span class="input-group-text bg-white border-end-0">🔍</span>
+        <input 
+          type="text" 
+          class="form-control border-start-0 ps-0" 
+          placeholder="Search solutions..." 
+          [(ngModel)]="searchText" 
+          (input)="onSearch()">
+      </div>
+    </div>
+    <div class="col-md-6 text-md-end">
+      <button class="btn btn-outline-danger me-2" (click)="exportPDF()">📄 PDF</button>
+      <button class="btn btn-outline-success" (click)="exportExcel()">📊 Excel</button>
     </div>
   </div>
-}
+
+  @if (isLoading) {
+    <div class="text-center py-5">
+      <div class="spinner-border text-primary" role="status"></div>
+      <p class="mt-2">Loading Solutions...</p>
+    </div>
+  }
+
+  <div class="row">
+    @for (plan of filteredPlans; track plan.id) {
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm border-0 hover-card">
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <h3 class="card-title h5 fw-bold">{{plan.name}}</h3>
+              @if (plan.recommended) {
+                <span class="badge bg-success rounded-pill">Recommended</span>
+              }
+            </div>
+            <h4 class="text-primary mb-3">\${{plan.price}}<span class="text-muted fs-6">/mo</span></h4>
+            <p class="card-text text-muted small flex-grow-1">{{plan.description}}</p>
+            
+            <ul class="list-unstyled mb-4 small">
+              @for (feat of plan.features; track $index) {
+                <li class="mb-1 text-secondary">
+                  <i class="bi bi-check-circle-fill text-success me-2"></i>{{feat}}
+                </li>
+              }
+            </ul>
+
+            <div class="d-grid gap-2">
+              <a [routerLink]="['/plan', plan.id]" class="btn btn-outline-primary">View Details</a>
+              @if (authService.isLoggedIn()) {
+                <button class="btn btn-sm btn-light text-danger" (click)="deletePlan(plan.id)">Delete</button>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+    @empty {
+      <div class="text-center py-5" *ngIf="!isLoading">
+        <p>No solutions found matching "{{searchText}}".</p>
+      </div>
+    }
+  </div>
+
+  @if (authService.isLoggedIn()) {
+    <a routerLink="/create-solution" class="btn btn-primary rounded-circle shadow-lg fab-btn" title="Add New Solution">
+      <span style="font-size: 24px; line-height: 1;">+</span>
+    </a>
+  }
+</div>
