@@ -26,7 +26,9 @@ export class PlanService {
   remove(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
+  update(id: number, plan: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, plan);
+  }
   
-  // Helper for your legacy code if needed
   getItems() { return this.getAll(); }
 }

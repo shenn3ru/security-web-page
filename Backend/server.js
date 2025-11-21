@@ -103,7 +103,24 @@ app.delete('/plans/:id', (req, res) => {
         res.json({ message: 'Deleted' });
     });
 });
-
+// UPDATE (Edit Solution)
+app.put('/plans/:id', (req, res) => {
+    const { name, description, price, features, recommended, imageUrl } = req.body;
+    // Keep the old image or use the new one if provided
+    const img = imageUrl || 'https://placehold.co/600x400/2563eb/white?text=Security+Solution';
+    
+    db.query(
+        'UPDATE plans SET name = ?, description = ?, price = ?, imageUrl = ?, features = ?, recommended = ? WHERE id = ?',
+        [name, description, price, img, JSON.stringify(features), recommended || false, req.params.id],
+        (err, result) => {
+            if (err) {
+                console.error("Error updating plan:", err); // Add console log for debugging
+                return res.status(500).json(err);
+            }
+            res.json({ message: 'Plan updated successfully' });
+        }
+    );
+});
 app.listen(3000, () => {
     console.log('✅ Server running on http://localhost:3000');
 });

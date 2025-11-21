@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login';
 import { RegisterComponent } from './components/register/register.component';
 import { CreateSolutionComponent } from './components/create-solution/create-solution.component';
-
+import { UpdateSolutionComponent } from './components/update-solution/update-solution.component';
 import { BlogComponent } from './components/blog/blog';
 import { ContactComponent } from './components/contact/contact';
 
@@ -26,6 +26,6 @@ export const routes: Routes = [
   // Adaugă rutele noi
   { path: 'blog', component: BlogComponent },
   { path: 'contact', component: ContactComponent },
-
+  { path: 'edit-plan/:id', component: UpdateSolutionComponent },
   { path: 'pricing', redirectTo: 'solutions', pathMatch: 'full' }
 ];

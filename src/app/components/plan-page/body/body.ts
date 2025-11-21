@@ -25,4 +25,9 @@ ngOnInit() {
   goBack() {
     this.router.navigate(['/']); 
   }
+  editPlan() {
+    if (this.plans && this.plans.id) {
+      this.router.navigate(['/edit-plan', this.plans.id]);
+    }
+  }
 }
